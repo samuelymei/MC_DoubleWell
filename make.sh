@@ -1,5 +1,5 @@
-FC=ifort
-FFLAGS="-CB"
+FC=gfortran
+FFLAGS=""
 ${FC} ${FFLAGS} -c fp_kind.f90
 ${FC} ${FFLAGS} -c lib.f90
 ${FC} ${FFLAGS} -c MC_DoubleWell.f90

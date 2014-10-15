@@ -37,6 +37,8 @@ contains
   real(kind=fp_kind), intent(in) :: T
   real(kind=fp_kind) :: random_numbers(2*ntotstep)
   character(len=80) :: traj
+  real(kind=fp_kind) :: myrand
+  integer(kind=4) :: i
   Nstep = ntotstep
   allocate(x(0:Nstep))
   allocate(U_x(0:Nstep))
@@ -47,7 +49,10 @@ contains
   U_x(0) = U_DoubleWell(x0)
   temperature = T
   trajfile = traj
-  call random_my(2*ntotstep, random_numbers)
+!  call random_my(2*ntotstep, random_numbers)
+  do i = 1, 2*ntotstep
+    random_numbers(i) = myrand()
+  end do
   random_xdelta = random_numbers(1:ntotstep) - 0.5d0
   random_exp = random_numbers(ntotstep+1:2*ntotstep)
   open(99,file=trajfile)
