@@ -9,9 +9,9 @@ module MC_DoubleWell
   use precision_m
   implicit none
   private
-  integer(kind=4), public :: Nstep
-  real(kind=fp_kind), public :: Temperature
-  character(len=80), public :: trajfile 
+  integer(kind=4) :: Nstep
+  real(kind=fp_kind) :: Temperature
+  character(len=80) :: trajfile 
 
   real(kind=fp_kind), allocatable :: x(:)
   real(kind=fp_kind), allocatable :: U_x(:)
