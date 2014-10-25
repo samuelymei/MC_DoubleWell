@@ -15,7 +15,7 @@ module MC_DoubleWell
 
   real(kind=fp_kind), allocatable :: x(:)
   real(kind=fp_kind), allocatable :: U_x(:)
-  integer(kind=fp_kind), allocatable ::isucc(:)
+  integer(kind=4), allocatable ::isucc(:)
   real(kind=fp_kind), allocatable :: random_xdelta(:)
   real(kind=fp_kind), allocatable :: random_exp(:)
   public :: DoubleWell_initialize, DoubleWell_finalize, MC_DoubleWell_start
