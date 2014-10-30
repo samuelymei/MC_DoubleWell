@@ -8,7 +8,7 @@ LIBS =
 
 EXE = MC_DoubleWell.x
 
-MODULES = precision_m.mod MC_DoubleWell.mod
+MODULES = precision_m.mod mc_doublewell.mod
 
 OBJS = precision_m.o lib.o MC_DoubleWell.o MC_run.o
 
