@@ -15,6 +15,4 @@ program MC_run
   print*, 'Input the name of the trajectory file'
   read*,traj
   call DoubleWell_initialize(nTotStep, initState, T, traj)
-  call MC_DoubleWell_run
-  call DoubleWell_finalize
 end program MC_run

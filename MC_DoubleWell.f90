@@ -22,8 +22,7 @@ module MC_DoubleWell
   real(kind=fp_kind) :: Temperature
   real(kind=fp_kind), allocatable :: random_xdelta(:)
   real(kind=fp_kind), allocatable :: random_exp(:)
-  public :: DoubleWell_initialize, DoubleWell_finalize, MC_DoubleWell_run
-  public :: calcEnergy
+  public :: DoubleWell_initialize
 contains
 
   subroutine calcEnergy(state) 
@@ -61,6 +60,8 @@ contains
   random_xdelta = random_numbers(1:ntotstep) - 0.5d0
   random_exp = random_numbers(ntotstep+1:2*ntotstep)
   open(99,file=trajfile)
+
+  call MC_DoubleWell_run
   end subroutine DoubleWell_initialize
 
   subroutine DoubleWell_finalize
@@ -86,6 +87,7 @@ contains
     states(istep) = stateCurrent
     write(99,'(I8,1X,F10.3,1X,F10.3,1X,I4)')istep, states(istep)%x, states(istep)%u, states(istep)%isucc
   end do
+  call DoubleWell_Finalize
   end subroutine MC_DoubleWell_run
 
   subroutine MC_Propagate(stateCurrent, stateTrial, random_probability)
